@@ -17,7 +17,6 @@ export default class App extends React.Component {
               <TouchableOpacity
                 transparent
                 onPress={() => this.props.navigation.openDrawer()}
-                style={styles.menuIcon}
               >
                 <Ionicons name="md-menu" size={20} color="#fff" />
               </TouchableOpacity>
@@ -54,12 +53,9 @@ const styles = StyleSheet.create({
   },
   deliveryNav: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#ea5b31',
-  },
-  menuIcon: {
-    marginLeft: 10,
   },
   deliveryText: {
     textAlign: 'center',
