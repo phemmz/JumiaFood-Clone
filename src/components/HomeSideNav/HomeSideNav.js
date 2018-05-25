@@ -1,33 +1,53 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Constants } from 'expo';
 import { MaterialCommunityIcons, Feather, MaterialIcons } from '@expo/vector-icons';
 
 export default class HomeSideNav extends React.Component {
+
   render() {
+    const { activeItemKey } = this.props;
+
     return (
       <View style={styles.container}>
-        <View style={styles.accountSection}>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('Account')}
+          style={styles.accountSection}
+        >
           <Text style={styles.loginText}>Log in to your account</Text>
-        </View>
+        </TouchableOpacity>
         <View style={styles.detailsContainer}>
-          <View style={styles.sidenavDetails}>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Home')}
+            style={styles.sidenavDetails}
+          >
             <MaterialCommunityIcons name="map-marker-outline" size={28} color="rgba(0, 0, 0, 0.7)"/> 
-            <Text style={styles.detailsText}>Your Location</Text>
-          </View>
+            <Text
+              style={ activeItemKey === 'Home' ? [styles.detailsText, styles.activeText] : styles.detailsText }
+            >Your Location</Text>
+          </TouchableOpacity>
           <View style={styles.sidenavDetails}>
             <Feather name="percent" size={28} color="rgba(0, 0, 0, 0.7)"/> 
-            <Text style={styles.detailsText}>Deals</Text>
+            <Text
+              style={ activeItemKey === 'Deals' ? [styles.detailsText, styles.activeText] : styles.detailsText }
+            >Deals</Text>
           </View>
         </View>
         <View style={styles.detailsContainer}>
-          <View style={styles.sidenavDetails}>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Account')}
+            style={styles.sidenavDetails}
+          >
             <MaterialIcons name="account-box" size={30} color="rgba(0, 0, 0, 0.8)"/>
-            <Text style={styles.detailsText}>Account</Text>
-          </View>
+            <Text
+              style={ activeItemKey === 'Account' ? [styles.detailsText, styles.activeText] : styles.detailsText }
+            >Account</Text>
+          </TouchableOpacity>
           <View style={styles.sidenavDetails}>
             <Feather name="file-text" size={30} color="rgba(0, 0, 0, 0.8)"/>
-            <Text style={styles.detailsText}>Orders</Text>
+            <Text
+              style={ activeItemKey === 'Orders' ? [styles.detailsText, styles.activeText] : styles.detailsText }
+            >Orders</Text>
           </View>
         </View>
         <View style={styles.settingsDetails}>
@@ -69,6 +89,9 @@ const styles = StyleSheet.create({
   detailsText: {
     paddingLeft: 13,
     color: "rgba(0, 0, 0, 0.7)",
+  },
+  activeText: {
+    fontWeight: '900',
   },
   settingsDetails: {
     flex: 1,

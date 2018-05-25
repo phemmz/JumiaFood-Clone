@@ -3,26 +3,18 @@ import { Constants } from 'expo';
 import { StyleSheet, Text, View, ImageBackground, Platform, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import NavBar from '../../NavBar/NavBar';
+
 export default class App extends React.Component {
   onPress = () => {
-
   }
 
   render() {
     return (
-      <ImageBackground source={require('../../../assets/homepage-splash.jpg')} style={styles.backgroundImage}>
+      <ImageBackground source={require('../../../../assets/homepage-splash.jpg')} style={styles.backgroundImage}>
         <View style={styles.container}>
           <View>
-            <View style={styles.deliveryNav}>
-              <TouchableOpacity
-                transparent
-                onPress={() => this.props.navigation.openDrawer()}
-              >
-                <Ionicons name="md-menu" size={20} color="#fff" />
-              </TouchableOpacity>
-              <Text style={styles.deliveryText}>Delivery Location</Text>
-              <Text></Text>
-            </View>
+            <NavBar openDrawer={() => this.props.navigation.openDrawer()} navTitle="Delivery Location" />
             <View>
               <Text>Open up App.js to start working on your app!</Text>
               <Text>Changes you make will automatically reload.</Text>
