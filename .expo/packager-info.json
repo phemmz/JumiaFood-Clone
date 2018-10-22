@@ -1,8 +1,8 @@
 {
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 5721,
-  "expoServerNgrokUrl": "https://se-in6.phemmz.jumiafood-clone.exp.direct",
-  "packagerNgrokUrl": "https://packager.se-in6.phemmz.jumiafood-clone.exp.direct",
-  "ngrokPid": 5736
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
